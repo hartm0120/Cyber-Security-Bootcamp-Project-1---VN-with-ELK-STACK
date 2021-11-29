@@ -1,0 +1,64 @@
+﻿---
+- name: playbook to install and configure Elk VM with Docker
+  hosts: elk
+  remote_user: azadmin
+  become: true
+  tasks:
+
+
+#use apt to install Docker
+  - name: Install Docker.io (state=present is optional)
+    apt:
+      force_apt_get: yes
+      update_cache: yes
+      name: docker.io
+      state: present
+
+
+#use apt to install python3-pip
+  - name: Install python3-pip (state=present is optional)
+    apt:
+      force_apt_get: yes
+      name: python3-pip
+      state: present
+
+
+#use pip to install Docker
+  - name: Install docker (state=present is optional)
+    pip:
+      name: docker
+      state: present
+
+
+# use command to set vm max map count
+  - name: Increase virtual memory
+    command: sysctl -w vm.max_map_count=262144
+
+
+# use sysctl module
+  - name: Use more memory
+    sysctl:
+      name: vm.max_map_count
+      value: "262144"
+      state: present
+      reload: yes
+
+
+# use docker-container to install and launch elk container
+  - name: docker_container to install and launch elk container (state=present is optional)
+    docker_container:
+      name: elk
+      image: sebp/elk:761
+      state: started
+      restart_policy: always
+      published_ports: 
+        - 5601:5601 
+        - 9200:9200
+        - 5044:5044
+
+
+# restart docker service when VM restarts
+  - name: systemd to restart docker service when VM restarts
+    systemd:
+      name: docker
+      enabled: yes

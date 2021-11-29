@@ -1,0 +1,43 @@
+﻿---
+- name: playbook to install docker and configure VM with DVWA web app
+  hosts: webservers
+  become: true
+  tasks:
+
+
+  - name: Install Docker.io (state=present is optional)
+    apt:
+      force_apt_get: yes
+      update_cache: yes
+      name: docker.io
+      state: present
+
+
+  - name: Install python3-pip (state=present is optional)
+    apt:
+      force_apt_get: yes
+      name: python3-pip
+      state: present
+
+
+  - name: Install docker with pip (state=present is optional)
+    pip:
+      name: docker
+      state: present
+
+
+  - name: docker_container to install cyberxsecurity/dvwa container (state=present is optio
+nal)
+    docker_container:
+      name: dvwa
+      image: cyberxsecurity/dvwa
+      state: started
+      published_ports: 80:80
+        #published port 80 on container to port 80 on the host
+      restart_policy: always
+
+
+  - name: systemd to restart docker service when VM restarts
+    systemd:
+      name: docker
+      enabled: yes
