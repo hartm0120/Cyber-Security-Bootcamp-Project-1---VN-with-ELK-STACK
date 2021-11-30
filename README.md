@@ -119,7 +119,7 @@ In order to specify which machine to install either ELK, filebeat or metricbeat,
   
 Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
 
-### Testing the system
+### Testing the system and using the Kibana App
 
 To ensure the system is working and the ELK server is receiving both the logs and metrics data from the web servers, we conducted three separate tests while using the Kibana application to visualise the data ELK server was receiving, including the following:
 - SSH barrage script - a for/while nested loop script was created to run from the Jump-Box VM which attempted multiple SSH connections. These were not successful due to the access policies implemented; however, we were able to see the logs system.auth logs in the log feed on Kibana indicating unauthorised SSH connections were attempted.
