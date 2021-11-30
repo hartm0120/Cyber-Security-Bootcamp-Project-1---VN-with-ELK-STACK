@@ -118,7 +118,7 @@ In order to specify which machine to install either ELK, filebeat or metricbeat,
 
 ![This is an image](https://github.com/hartm0120/Cyber-Security-Bootcamp-Project-1---VN-with-ELK-STACK/blob/main/Ansible/Playbook%20File%20Host%20Example.png)
   
-Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
+Run the playbook by running the command 'ansible-playbook [playbook-file-name].yml'. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
 
 ### Testing the system and using the Kibana App
 
