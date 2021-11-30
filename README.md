@@ -4,7 +4,7 @@ Repository for the building and configuring a virtual network with an ELK stack
 
 The files in this repository were used to configure the network depicted below.
 
-https://github.com/hartm0120/Cyber-Security-Bootcamp-Project-1---VN-with-ELK-STACK/blob/main/Diagrams/Project%201%20Network%20Diagram.png
+![This is an image](https://github.com/hartm0120/Cyber-Security-Bootcamp-Project-1---VN-with-ELK-STACK/blob/main/Diagrams/Project%201%20Network%20Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat. The files used to configure this deployment includes:
 Ansible.cfg
