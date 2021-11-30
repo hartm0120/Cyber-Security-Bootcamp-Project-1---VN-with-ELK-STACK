@@ -44,7 +44,7 @@ The configuration details of each machine may be found below.
 | Name         | Function   | IP Address               |   Operating System   |
 |--------------|------------|--------------------------|:--------------------:|
 | Jump Box     | Gateway    | 20.92.105.75 & 10.0.0.4  | Linux (ubuntu 20.04) |
-| ELK server   | SIEM       | 52.243.75.234 & 10.1.0.4 | Linux (ubuntu 20.04) |
+| ELK server   | ELK server | 52.243.75.234 & 10.1.0.4 | Linux (ubuntu 20.04) |
 | Web 1 server | Web server | 10.0.0.5                 | Linux (ubuntu 20.04) |
 | Web 2 server | Web server | 10.0.0.6                 | Linux (ubuntu 20.04) |
 
