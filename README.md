@@ -107,20 +107,15 @@ SSH into the control node and follow the steps below:
 - Copy the relevant playbook file (ie. filebeat-playbook.yml, metricbeat-playbook.yml, install-elk.yml, etc.) to /etc/ansible filepath.
 - Update the hosts file to include the [webservers] and [elk] VMs. This filepath is /etc/ansible/hosts and should include the host name, internal IP address, as well as the script being used:
 
-[webservers]
-10.0.0.5 ansible_python_interpreter=/usr/bin/python3
-10.0.0.6 anisble_python_interpreter=/usr/bin/python3
+- [webservers]
+- 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+- 10.0.0.6 anisble_python_interpreter=/usr/bin/python3
 
-[elk]
-10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+- [elk]
+- 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 
 In order to specify which machine to install either ELK, filebeat or metricbeat, you simply specify which host at the beginning of your playbook file that you want to run and install the relevant applications or software included in your script. An example of the begining of the playbook to highlight this has been included below:
 
-- name: playbook to install and configure Elk VM with Docker
--  hosts: elk
--  remote_user: azadmin
--  become: true
--  tasks:
   
-- Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
+Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
 
