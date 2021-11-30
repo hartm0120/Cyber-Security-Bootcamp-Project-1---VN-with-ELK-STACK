@@ -116,12 +116,11 @@ SSH into the control node and follow the steps below:
 
 In order to specify which machine to install either ELK, filebeat or metricbeat, you simply specify which host at the beginning of your playbook file that you want to run and install the relevant applications or software included in your script. An example of the begining of the playbook to highlight this has been included below:
 
----
 - name: playbook to install and configure Elk VM with Docker
-  hosts: elk
-  remote_user: azadmin
-  become: true
-  tasks:
+-  hosts: elk
+-  remote_user: azadmin
+-  become: true
+-  tasks:
   
 - Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
 
