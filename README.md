@@ -62,7 +62,7 @@ The ELK VM can be accessed via HTTP connection via port 5601 from my home/workst
 
 A summary of the access policies in place can be found in the table below.
 
-| | Name         | Publicly Accessible | Allowed IP Addresses |
+| Name         | Publicly Accessible | Allowed IP Addresses |
 |--------------|---------------------|----------------------|
 | Jump Box     | No                  | Home IP              |
 | Web 1 server | No                  | 10.0.0.4             |
@@ -104,8 +104,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
-- Copy the relevant playbook file (ie. filebeat-playbook.yml, metricbeat-playbook.yml, install-elk.yml, etc.) to /etc/ansible.
-- Update the hosts file to include the [webservers] and [elk] VMs. This file /etc/ansible/hosts should include the following:
+- Copy the relevant playbook file (ie. filebeat-playbook.yml, metricbeat-playbook.yml, install-elk.yml, etc.) to /etc/ansible filepath.
+- Update the hosts file to include the [webservers] and [elk] VMs. This filepath is /etc/ansible/hosts and should include the host name, internal IP address, as well as the script being used:
 
 [webservers]
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
@@ -114,7 +114,7 @@ SSH into the control node and follow the steps below:
 [elk]
 10.1.0.4 ansible_python_interpreter=/usr/bin/python3
 
-In order to specify which machine to install either ELK, filebeat or metricbeat, you simply specify which host at the beginning of your playbook file that you want to run and install the relevant applications or software. An example has been included below:
+In order to specify which machine to install either ELK, filebeat or metricbeat, you simply specify which host at the beginning of your playbook file that you want to run and install the relevant applications or software included in your script. An example of the begining of the playbook to highlight this has been included below:
 
 ---
 - name: playbook to install and configure Elk VM with Docker
@@ -123,5 +123,5 @@ In order to specify which machine to install either ELK, filebeat or metricbeat,
   become: true
   tasks:
   
-- Run the playbook by running the command ansible-playbook [playbook-file-name].yml, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation worked as expected. Please refer to the ansible for all playbook and config files for more detail.
+- Run the playbook by running the command ansible-playbook [playbook-file-name].yml. To confirm the ELK playbook installed as expected run the command sudo docker ps, and navigate to http://52.243.75.234:5601/app/kibanna to check that the installation is working as expected. Please refer to the ansible folder for all playbook and config files for more detail.
 
